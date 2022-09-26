@@ -10,7 +10,6 @@ def opcoes(aluno):
     opcao = int(input('Informe a Opção: '))
     if opcao == 1:
         cadastrar(aluno)
-
     elif opcao == 2:
         listar(aluno)
     elif opcao == 3:
@@ -100,6 +99,56 @@ def listar(aluno):
         else:
             exit()
 
+    # --------FUNÇÃO PARA EDITAR ALUNO-------
+
+
+def editar(aluno):
+    print('\n--- Editar Aluno ---')
+
+    id = int(input("Digite o código: "))
+    for i, key in enumerate(aluno):
+        if (id == key["id"]):
+            key['cpf'] = input('Cpf: ')
+            key['nome'] = input('Nome: ')
+            key['idade'] = int(input('Idade: '))
+            key['turma'] = input('Turma: ')
+
+            print('--------------------\n')
+            print('Dados atualizados!')
+
+    opcao = int(input('\nDeseja retornar ao menu? [1-Sim/2-Não]: '))
+    if opcao == 1:
+        opcoes(aluno)
+
+    else:
+        exit()
+
+    # -------FUNÇÃO PARA DELETAR ALUNO------
+
+
+def deletar(aluno):
+    id = int(input("\nDigite o código: "))
+    for i, key in enumerate(aluno):
+        if (id == key["id"]):
+            del aluno[i]
+            print('Aluno deletado!')
+
+    opcao = int(input('\nDeseja retornar ao menu? [1-Sim/2-Não]: '))
+    if opcao == 1:
+        opcoes(aluno)
+
+    else:
+        exit()
+
+    # -------FUNÇÃO PARA FECHAR O CÓDIGO------
+def sair(lista):
+    opcao = int(input('\nTem certeza que quer sair? [1-Sim/2-Não]: '))
+    if opcao == 1:
+        print('******Você saiu!******')
+        exit()
+
+    else:
+        opcoes(lista)
 
 
 
